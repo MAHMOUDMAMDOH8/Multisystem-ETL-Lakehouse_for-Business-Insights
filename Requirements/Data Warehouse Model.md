@@ -179,8 +179,6 @@ erDiagram
 
 # Relationships:
 
-- Dimension Tables → Fact Tables: Many-to-one relationships (star schema design)
-
 - Cross-System Integration: Unified customer and product dimensions across all source systems
 
 - Temporal Analysis: Comprehensive date and time dimensions for trend analysis
