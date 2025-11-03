@@ -1,0 +1,114 @@
+[2025-11-02T17:49:25.656+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-02T17:49:25.673+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_lake_silver_transform.transform_freshdesk manual__2025-11-02T17:42:51.818424+00:00 [queued]>
+[2025-11-02T17:49:25.682+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_lake_silver_transform.transform_freshdesk manual__2025-11-02T17:42:51.818424+00:00 [queued]>
+[2025-11-02T17:49:25.690+0000] {taskinstance.py:2865} INFO - Starting attempt 2 of 2
+[2025-11-02T17:49:25.702+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): transform_freshdesk> on 2025-11-02 17:42:51.818424+00:00
+[2025-11-02T17:49:25.708+0000] {standard_task_runner.py:72} INFO - Started process 1875 to run task
+[2025-11-02T17:49:25.711+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'data_lake_silver_transform', 'transform_freshdesk', 'manual__2025-11-02T17:42:51.818424+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform.py', '--cfg-path', '/tmp/tmp9mdhoiea']
+[2025-11-02T17:49:25.716+0000] {standard_task_runner.py:105} INFO - Job 43: Subtask transform_freshdesk
+[2025-11-02T17:49:25.764+0000] {task_command.py:467} INFO - Running <TaskInstance: data_lake_silver_transform.transform_freshdesk manual__2025-11-02T17:42:51.818424+00:00 [running]> on host 4bd4a2df5838
+[2025-11-02T17:49:25.832+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='data_lake_silver_transform' AIRFLOW_CTX_TASK_ID='transform_freshdesk' AIRFLOW_CTX_EXECUTION_DATE='2025-11-02T17:42:51.818424+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-02T17:42:51.818424+00:00'
+[2025-11-02T17:49:25.838+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-02T17:49:25.854+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-02T17:49:25.857+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master spark://spark-master:7077 --packages org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.5.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --conf spark.hadoop.fs.s3a.endpoint=https://repulsive-spooky-cemetery-9rw4pvr4w66f4g6-4566.app.github.dev --conf spark.hadoop.fs.s3a.access.key=test --conf spark.hadoop.fs.s3a.secret.key=test --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.connection.ssl.enabled=true /opt/spark/work-dir/scripts/silver_layer/transform_freshdesk.py']
+[2025-11-02T17:49:25.865+0000] {subprocess.py:86} INFO - Output:
+[2025-11-02T17:49:26.896+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark-3.4.0-bin-hadoop3/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-11-02T17:49:27.006+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-11-02T17:49:27.008+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-11-02T17:49:27.009+0000] {subprocess.py:93} INFO - org.apache.iceberg#iceberg-spark-runtime-3.4_2.12 added as a dependency
+[2025-11-02T17:49:27.011+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-11-02T17:49:27.013+0000] {subprocess.py:93} INFO - com.amazonaws#aws-java-sdk-bundle added as a dependency
+[2025-11-02T17:49:27.014+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-54a72575-58bc-4317-852b-70b49f6f4471;1.0
+[2025-11-02T17:49:27.015+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-02T17:49:27.103+0000] {subprocess.py:93} INFO - 	found org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 in central
+[2025-11-02T17:49:27.154+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+[2025-11-02T17:49:27.177+0000] {subprocess.py:93} INFO - 	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in spark-list
+[2025-11-02T17:49:27.195+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-11-02T17:49:27.215+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 195ms :: artifacts dl 10ms
+[2025-11-02T17:49:27.217+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-11-02T17:49:27.218+0000] {subprocess.py:93} INFO - 	com.amazonaws#aws-java-sdk-bundle;1.12.262 from spark-list in [default]
+[2025-11-02T17:49:27.220+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+[2025-11-02T17:49:27.221+0000] {subprocess.py:93} INFO - 	org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 from central in [default]
+[2025-11-02T17:49:27.225+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-11-02T17:49:27.227+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T17:49:27.229+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-11-02T17:49:27.230+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-11-02T17:49:27.232+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T17:49:27.233+0000] {subprocess.py:93} INFO - 	|      default     |   4   |   0   |   0   |   0   ||   4   |   0   |
+[2025-11-02T17:49:27.235+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T17:49:27.236+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-54a72575-58bc-4317-852b-70b49f6f4471
+[2025-11-02T17:49:27.238+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-02T17:49:27.239+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 4 already retrieved (0kB/6ms)
+[2025-11-02T17:49:27.362+0000] {subprocess.py:93} INFO - 25/11/02 17:49:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-02T17:49:29.226+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Running Spark version 3.4.0
+[2025-11-02T17:49:29.240+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO ResourceUtils: ==============================================================
+[2025-11-02T17:49:29.243+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-11-02T17:49:29.244+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO ResourceUtils: ==============================================================
+[2025-11-02T17:49:29.246+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Submitted application: Freshdesk_Silver_Transform
+[2025-11-02T17:49:29.254+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-11-02T17:49:29.260+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO ResourceProfile: Limiting resource is cpu
+[2025-11-02T17:49:29.261+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-11-02T17:49:29.296+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SecurityManager: Changing view acls to: ***
+[2025-11-02T17:49:29.298+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SecurityManager: Changing modify acls to: ***
+[2025-11-02T17:49:29.300+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SecurityManager: Changing view acls groups to:
+[2025-11-02T17:49:29.307+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SecurityManager: Changing modify acls groups to:
+[2025-11-02T17:49:29.308+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-11-02T17:49:29.493+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO Utils: Successfully started service 'sparkDriver' on port 37821.
+[2025-11-02T17:49:29.516+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkEnv: Registering MapOutputTracker
+[2025-11-02T17:49:29.548+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkEnv: Registering BlockManagerMaster
+[2025-11-02T17:49:29.560+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-11-02T17:49:29.562+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-11-02T17:49:29.563+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-11-02T17:49:29.577+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-4e1c0430-cdcc-45a0-9d62-6f812fdaa18c
+[2025-11-02T17:49:29.591+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-11-02T17:49:29.605+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-11-02T17:49:29.687+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-11-02T17:49:29.731+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-11-02T17:49:29.755+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:37821/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762105769215
+[2025-11-02T17:49:29.757+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:37821/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762105769215
+[2025-11-02T17:49:29.759+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:37821/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762105769215
+[2025-11-02T17:49:29.760+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:37821/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762105769215
+[2025-11-02T17:49:29.761+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:37821/files/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762105769215
+[2025-11-02T17:49:29.762+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar to /tmp/spark-263f7a53-2441-41d0-b72b-1e9303293858/userFiles-2cb6a305-19d2-4726-aed8-e84ee41789a4/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar
+[2025-11-02T17:49:29.794+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:37821/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762105769215
+[2025-11-02T17:49:29.796+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-263f7a53-2441-41d0-b72b-1e9303293858/userFiles-2cb6a305-19d2-4726-aed8-e84ee41789a4/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-11-02T17:49:29.800+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:37821/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762105769215
+[2025-11-02T17:49:29.801+0000] {subprocess.py:93} INFO - 25/11/02 17:49:29 INFO Utils: Copying /home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-263f7a53-2441-41d0-b72b-1e9303293858/userFiles-2cb6a305-19d2-4726-aed8-e84ee41789a4/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-11-02T17:49:30.002+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:37821/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762105769215
+[2025-11-02T17:49:30.006+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO Utils: Copying /home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-263f7a53-2441-41d0-b72b-1e9303293858/userFiles-2cb6a305-19d2-4726-aed8-e84ee41789a4/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-11-02T17:49:30.071+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-11-02T17:49:30.109+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.3:7077 after 19 ms (0 ms spent in bootstraps)
+[2025-11-02T17:49:30.173+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20251102174930-0004
+[2025-11-02T17:49:30.176+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20251102174930-0004/0 on worker-20251102173659-172.18.0.5-46705 (172.18.0.5:46705) with 2 core(s)
+[2025-11-02T17:49:30.178+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO StandaloneSchedulerBackend: Granted executor ID app-20251102174930-0004/0 on hostPort 172.18.0.5:46705 with 2 core(s), 1024.0 MiB RAM
+[2025-11-02T17:49:30.181+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38613.
+[2025-11-02T17:49:30.186+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO NettyBlockTransferService: Server created on 4bd4a2df5838:38613
+[2025-11-02T17:49:30.188+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-11-02T17:49:30.190+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 4bd4a2df5838, 38613, None)
+[2025-11-02T17:49:30.192+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO BlockManagerMasterEndpoint: Registering block manager 4bd4a2df5838:38613 with 434.4 MiB RAM, BlockManagerId(driver, 4bd4a2df5838, 38613, None)
+[2025-11-02T17:49:30.193+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 4bd4a2df5838, 38613, None)
+[2025-11-02T17:49:30.195+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 4bd4a2df5838, 38613, None)
+[2025-11-02T17:49:30.221+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20251102174930-0004/0 is now RUNNING
+[2025-11-02T17:49:30.387+0000] {subprocess.py:93} INFO - 25/11/02 17:49:30 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-11-02T17:49:32.356+0000] {subprocess.py:93} INFO - [INFO] Latest file for freshdesk/customers: s3a://multusystem/freshdesk/customers/2025_11_02_1762105292350_0.parquet
+[2025-11-02T17:49:33.398+0000] {subprocess.py:93} INFO - 25/11/02 17:49:33 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-11-02T17:49:45.406+0000] {subprocess.py:93} INFO - INFO:__main__:Customers data loaded successfully from s3a://multusystem/freshdesk/customers/2025_11_02_1762105292350_0.parquet,rows: 8
+[2025-11-02T17:49:47.180+0000] {subprocess.py:93} INFO - Table local.freshdesk_customers does not exist. Creating it...
+[2025-11-02T17:49:47.263+0000] {subprocess.py:93} INFO - 25/11/02 17:49:47 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-11-02T17:50:05.906+0000] {subprocess.py:93} INFO - INFO:__main__:Customers data written to iceberg successfully with 8 rows
+[2025-11-02T17:50:06.478+0000] {subprocess.py:93} INFO - [INFO] Latest file for freshdesk/agents: s3a://multusystem/freshdesk/agents/2025_11_02_1762105292350_0.parquet
+[2025-11-02T17:50:09.244+0000] {subprocess.py:93} INFO - INFO:__main__:Agents data loaded successfully from s3a://multusystem/freshdesk/agents/2025_11_02_1762105292350_0.parquet,rows: 5
+[2025-11-02T17:50:10.753+0000] {subprocess.py:93} INFO - Table local.agents does not exist. Creating it...
+[2025-11-02T17:50:26.992+0000] {subprocess.py:93} INFO - INFO:__main__:Agents data written to iceberg successfully with 5 rows
+[2025-11-02T17:50:27.563+0000] {subprocess.py:93} INFO - [INFO] Latest file for freshdesk/tickets: s3a://multusystem/freshdesk/tickets/2025_11_02_1762105292350_0.parquet
+[2025-11-02T17:50:30.232+0000] {subprocess.py:93} INFO - INFO:__main__:Tickets data loaded successfully from s3a://multusystem/freshdesk/tickets/2025_11_02_1762105292350_0.parquet,rows: 8
+[2025-11-02T17:50:31.739+0000] {subprocess.py:93} INFO - Table local.tickets does not exist. Creating it...
+[2025-11-02T17:50:47.747+0000] {subprocess.py:93} INFO - INFO:__main__:Tickets data written to iceberg successfully with 8 rows
+[2025-11-02T17:50:47.749+0000] {subprocess.py:93} INFO - INFO:__main__:All transformations completed successfully
+[2025-11-02T17:50:47.752+0000] {subprocess.py:93} INFO - INFO:py4j.clientserver:Closing down clientserver connection
+[2025-11-02T17:50:48.024+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-02T17:50:48.053+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-02T17:50:48.056+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=data_lake_silver_transform, task_id=transform_freshdesk, run_id=manual__2025-11-02T17:42:51.818424+00:00, execution_date=20251102T174251, start_date=20251102T174925, end_date=20251102T175048
+[2025-11-02T17:50:48.104+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-02T17:50:48.127+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-02T17:50:48.138+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

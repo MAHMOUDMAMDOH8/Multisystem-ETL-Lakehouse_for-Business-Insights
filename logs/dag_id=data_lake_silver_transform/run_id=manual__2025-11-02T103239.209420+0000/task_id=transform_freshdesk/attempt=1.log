@@ -1,0 +1,501 @@
+[2025-11-02T10:35:55.723+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-02T10:35:55.751+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_lake_silver_transform.transform_freshdesk manual__2025-11-02T10:32:39.209420+00:00 [queued]>
+[2025-11-02T10:35:55.763+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_lake_silver_transform.transform_freshdesk manual__2025-11-02T10:32:39.209420+00:00 [queued]>
+[2025-11-02T10:35:55.765+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-11-02T10:35:55.790+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): transform_freshdesk> on 2025-11-02 10:32:39.209420+00:00
+[2025-11-02T10:35:55.795+0000] {standard_task_runner.py:72} INFO - Started process 1303 to run task
+[2025-11-02T10:35:55.797+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'data_lake_silver_transform', 'transform_freshdesk', 'manual__2025-11-02T10:32:39.209420+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform.py', '--cfg-path', '/tmp/tmp3goayqpe']
+[2025-11-02T10:35:55.802+0000] {standard_task_runner.py:105} INFO - Job 21: Subtask transform_freshdesk
+[2025-11-02T10:35:55.859+0000] {task_command.py:467} INFO - Running <TaskInstance: data_lake_silver_transform.transform_freshdesk manual__2025-11-02T10:32:39.209420+00:00 [running]> on host 4bd4a2df5838
+[2025-11-02T10:35:55.960+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='data_lake_silver_transform' AIRFLOW_CTX_TASK_ID='transform_freshdesk' AIRFLOW_CTX_EXECUTION_DATE='2025-11-02T10:32:39.209420+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-02T10:32:39.209420+00:00'
+[2025-11-02T10:35:55.963+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-02T10:35:55.985+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-02T10:35:55.988+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master spark://spark-master:7077 --packages org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.5.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --conf spark.hadoop.fs.s3a.endpoint=https://repulsive-spooky-cemetery-9rw4pvr4w66f4g6-4566.app.github.dev --conf spark.hadoop.fs.s3a.access.key=test --conf spark.hadoop.fs.s3a.secret.key=test --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.connection.ssl.enabled=true /opt/spark/work-dir/scripts/silver_layer/transform_freshdesk.py']
+[2025-11-02T10:35:55.999+0000] {subprocess.py:86} INFO - Output:
+[2025-11-02T10:35:57.017+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark-3.4.0-bin-hadoop3/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-11-02T10:35:57.108+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-11-02T10:35:57.110+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-11-02T10:35:57.112+0000] {subprocess.py:93} INFO - org.apache.iceberg#iceberg-spark-runtime-3.4_2.12 added as a dependency
+[2025-11-02T10:35:57.113+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-11-02T10:35:57.114+0000] {subprocess.py:93} INFO - com.amazonaws#aws-java-sdk-bundle added as a dependency
+[2025-11-02T10:35:57.116+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-085fa157-a4c9-405d-938c-ba6c0752334d;1.0
+[2025-11-02T10:35:57.117+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-02T10:35:57.209+0000] {subprocess.py:93} INFO - 	found org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 in central
+[2025-11-02T10:35:57.271+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+[2025-11-02T10:35:57.291+0000] {subprocess.py:93} INFO - 	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+[2025-11-02T10:35:57.315+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-11-02T10:35:57.335+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 214ms :: artifacts dl 9ms
+[2025-11-02T10:35:57.338+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-11-02T10:35:57.339+0000] {subprocess.py:93} INFO - 	com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+[2025-11-02T10:35:57.341+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+[2025-11-02T10:35:57.342+0000] {subprocess.py:93} INFO - 	org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 from central in [default]
+[2025-11-02T10:35:57.344+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-11-02T10:35:57.345+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T10:35:57.346+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-11-02T10:35:57.348+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-11-02T10:35:57.350+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T10:35:57.351+0000] {subprocess.py:93} INFO - 	|      default     |   4   |   0   |   0   |   0   ||   4   |   0   |
+[2025-11-02T10:35:57.352+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T10:35:57.353+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-085fa157-a4c9-405d-938c-ba6c0752334d
+[2025-11-02T10:35:57.354+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-02T10:35:57.355+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 4 already retrieved (0kB/5ms)
+[2025-11-02T10:35:57.493+0000] {subprocess.py:93} INFO - 25/11/02 10:35:57 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-02T10:35:58.996+0000] {subprocess.py:93} INFO - 25/11/02 10:35:58 INFO SparkContext: Running Spark version 3.4.0
+[2025-11-02T10:35:59.018+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO ResourceUtils: ==============================================================
+[2025-11-02T10:35:59.020+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-11-02T10:35:59.021+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO ResourceUtils: ==============================================================
+[2025-11-02T10:35:59.023+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Submitted application: Freshdesk_Silver_Transform
+[2025-11-02T10:35:59.035+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-11-02T10:35:59.042+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO ResourceProfile: Limiting resource is cpu
+[2025-11-02T10:35:59.044+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-11-02T10:35:59.080+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SecurityManager: Changing view acls to: ***
+[2025-11-02T10:35:59.082+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SecurityManager: Changing modify acls to: ***
+[2025-11-02T10:35:59.083+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SecurityManager: Changing view acls groups to:
+[2025-11-02T10:35:59.084+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SecurityManager: Changing modify acls groups to:
+[2025-11-02T10:35:59.086+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-11-02T10:35:59.247+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO Utils: Successfully started service 'sparkDriver' on port 33017.
+[2025-11-02T10:35:59.268+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkEnv: Registering MapOutputTracker
+[2025-11-02T10:35:59.297+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkEnv: Registering BlockManagerMaster
+[2025-11-02T10:35:59.309+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-11-02T10:35:59.311+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-11-02T10:35:59.313+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-11-02T10:35:59.326+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-4b594aa0-0409-40fa-a498-386ccba95984
+[2025-11-02T10:35:59.338+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-11-02T10:35:59.352+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-11-02T10:35:59.439+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-11-02T10:35:59.488+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-11-02T10:35:59.513+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:33017/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.515+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:33017/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.516+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:33017/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.517+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:33017/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.518+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:33017/files/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.519+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar to /tmp/spark-60955e18-cb17-4120-a8e3-f9353a84beab/userFiles-89f41537-8b9e-4c3c-9f19-f64e7e6ddb0a/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar
+[2025-11-02T10:35:59.545+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:33017/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.547+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-60955e18-cb17-4120-a8e3-f9353a84beab/userFiles-89f41537-8b9e-4c3c-9f19-f64e7e6ddb0a/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-11-02T10:35:59.550+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:33017/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.551+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO Utils: Copying /home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-60955e18-cb17-4120-a8e3-f9353a84beab/userFiles-89f41537-8b9e-4c3c-9f19-f64e7e6ddb0a/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-11-02T10:35:59.726+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:33017/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762079758991
+[2025-11-02T10:35:59.728+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO Utils: Copying /home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-60955e18-cb17-4120-a8e3-f9353a84beab/userFiles-89f41537-8b9e-4c3c-9f19-f64e7e6ddb0a/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-11-02T10:35:59.786+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-11-02T10:35:59.817+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.3:7077 after 17 ms (0 ms spent in bootstraps)
+[2025-11-02T10:35:59.878+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20251102103559-0002
+[2025-11-02T10:35:59.881+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20251102103559-0002/0 on worker-20251102102542-172.18.0.5-39375 (172.18.0.5:39375) with 2 core(s)
+[2025-11-02T10:35:59.882+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO StandaloneSchedulerBackend: Granted executor ID app-20251102103559-0002/0 on hostPort 172.18.0.5:39375 with 2 core(s), 1024.0 MiB RAM
+[2025-11-02T10:35:59.884+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 45371.
+[2025-11-02T10:35:59.885+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO NettyBlockTransferService: Server created on 4bd4a2df5838:45371
+[2025-11-02T10:35:59.887+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-11-02T10:35:59.895+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 4bd4a2df5838, 45371, None)
+[2025-11-02T10:35:59.903+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO BlockManagerMasterEndpoint: Registering block manager 4bd4a2df5838:45371 with 434.4 MiB RAM, BlockManagerId(driver, 4bd4a2df5838, 45371, None)
+[2025-11-02T10:35:59.905+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 4bd4a2df5838, 45371, None)
+[2025-11-02T10:35:59.908+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 4bd4a2df5838, 45371, None)
+[2025-11-02T10:35:59.916+0000] {subprocess.py:93} INFO - 25/11/02 10:35:59 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20251102103559-0002/0 is now RUNNING
+[2025-11-02T10:36:00.102+0000] {subprocess.py:93} INFO - 25/11/02 10:36:00 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-11-02T10:36:01.085+0000] {subprocess.py:93} INFO - [INFO] Latest file for freshdesk/customers: s3a://multusystem/freshdesk/customers/2025_11_02_1762079495193_0.parquet
+[2025-11-02T10:36:01.744+0000] {subprocess.py:93} INFO - 25/11/02 10:36:01 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-11-02T10:36:10.370+0000] {subprocess.py:93} INFO - INFO:__main__:Customers data loaded successfully from s3a://multusystem/freshdesk/customers/2025_11_02_1762079495193_0.parquet,rows: 8
+[2025-11-02T10:36:10.672+0000] {subprocess.py:93} INFO - 25/11/02 10:36:10 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-11-02T10:36:21.427+0000] {subprocess.py:93} INFO - 25/11/02 10:36:21 WARN HadoopTableOperations: Error reading version hint file s3a://multusystem/silver_layer/freshdesk_customers/metadata/version-hint.text
+[2025-11-02T10:36:21.428+0000] {subprocess.py:93} INFO - java.io.FileNotFoundException: No such file or directory: s3a://multusystem/silver_layer/freshdesk_customers/metadata/version-hint.text
+[2025-11-02T10:36:21.430+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3866)
+[2025-11-02T10:36:21.431+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3688)
+[2025-11-02T10:36:21.432+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.extractOrFetchSimpleFileStatus(S3AFileSystem.java:5401)
+[2025-11-02T10:36:21.433+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1465)
+[2025-11-02T10:36:21.434+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1441)
+[2025-11-02T10:36:21.435+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.open(FileSystem.java:976)
+[2025-11-02T10:36:21.436+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.findVersion(HadoopTableOperations.java:318)
+[2025-11-02T10:36:21.437+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.refresh(HadoopTableOperations.java:104)
+[2025-11-02T10:36:21.438+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.lambda$commitReplaceTransaction$1(BaseTransaction.java:368)
+[2025-11-02T10:36:21.439+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:413)
+[2025-11-02T10:36:21.439+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:219)
+[2025-11-02T10:36:21.441+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:203)
+[2025-11-02T10:36:21.442+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:196)
+[2025-11-02T10:36:21.443+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitReplaceTransaction(BaseTransaction.java:365)
+[2025-11-02T10:36:21.444+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitTransaction(BaseTransaction.java:314)
+[2025-11-02T10:36:21.445+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.CommitCallbackTransaction.commitTransaction(CommitCallbackTransaction.java:126)
+[2025-11-02T10:36:21.446+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.spark.source.StagedSparkTable.commitStagedChanges(StagedSparkTable.java:34)
+[2025-11-02T10:36:21.448+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.$anonfun$writeToTable$1(WriteToDataSourceV2Exec.scala:603)
+[2025-11-02T10:36:21.450+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1563)
+[2025-11-02T10:36:21.451+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable(WriteToDataSourceV2Exec.scala:587)
+[2025-11-02T10:36:21.452+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable$(WriteToDataSourceV2Exec.scala:582)
+[2025-11-02T10:36:21.452+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.writeToTable(WriteToDataSourceV2Exec.scala:202)
+[2025-11-02T10:36:21.453+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.run(WriteToDataSourceV2Exec.scala:236)
+[2025-11-02T10:36:21.454+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result$lzycompute(V2CommandExec.scala:43)
+[2025-11-02T10:36:21.455+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result(V2CommandExec.scala:43)
+[2025-11-02T10:36:21.456+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.executeCollect(V2CommandExec.scala:49)
+[2025-11-02T10:36:21.457+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98)
+[2025-11-02T10:36:21.458+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:118)
+[2025-11-02T10:36:21.459+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:195)
+[2025-11-02T10:36:21.459+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:103)
+[2025-11-02T10:36:21.460+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:827)
+[2025-11-02T10:36:21.461+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)
+[2025-11-02T10:36:21.462+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-11-02T10:36:21.463+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94)
+[2025-11-02T10:36:21.464+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:512)
+[2025-11-02T10:36:21.464+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:104)
+[2025-11-02T10:36:21.465+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:512)
+[2025-11-02T10:36:21.467+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:21.468+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-11-02T10:36:21.469+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-11-02T10:36:21.469+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:21.470+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:21.471+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:488)
+[2025-11-02T10:36:21.472+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94)
+[2025-11-02T10:36:21.473+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81)
+[2025-11-02T10:36:21.474+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79)
+[2025-11-02T10:36:21.474+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:133)
+[2025-11-02T10:36:21.475+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.runCommand(DataFrameWriterV2.scala:195)
+[2025-11-02T10:36:21.476+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.internalReplace(DataFrameWriterV2.scala:207)
+[2025-11-02T10:36:21.477+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.createOrReplace(DataFrameWriterV2.scala:133)
+[2025-11-02T10:36:21.478+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-11-02T10:36:21.479+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-11-02T10:36:21.479+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-11-02T10:36:21.480+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-11-02T10:36:21.481+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-11-02T10:36:21.481+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-11-02T10:36:21.483+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-11-02T10:36:21.484+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-11-02T10:36:21.485+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-11-02T10:36:21.486+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-11-02T10:36:21.487+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-11-02T10:36:21.487+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-11-02T10:36:23.036+0000] {subprocess.py:93} INFO - 25/11/02 10:36:23 WARN HadoopTableOperations: Error reading version hint file s3a://multusystem/silver_layer/freshdesk_customers/metadata/version-hint.text
+[2025-11-02T10:36:23.037+0000] {subprocess.py:93} INFO - java.io.FileNotFoundException: No such file or directory: s3a://multusystem/silver_layer/freshdesk_customers/metadata/version-hint.text
+[2025-11-02T10:36:23.038+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3866)
+[2025-11-02T10:36:23.039+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3688)
+[2025-11-02T10:36:23.039+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.extractOrFetchSimpleFileStatus(S3AFileSystem.java:5401)
+[2025-11-02T10:36:23.041+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1465)
+[2025-11-02T10:36:23.042+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1441)
+[2025-11-02T10:36:23.043+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.open(FileSystem.java:976)
+[2025-11-02T10:36:23.045+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.findVersion(HadoopTableOperations.java:318)
+[2025-11-02T10:36:23.047+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.refresh(HadoopTableOperations.java:104)
+[2025-11-02T10:36:23.048+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.current(HadoopTableOperations.java:84)
+[2025-11-02T10:36:23.049+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.lambda$commitReplaceTransaction$1(BaseTransaction.java:377)
+[2025-11-02T10:36:23.050+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:413)
+[2025-11-02T10:36:23.052+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:219)
+[2025-11-02T10:36:23.053+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:203)
+[2025-11-02T10:36:23.054+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:196)
+[2025-11-02T10:36:23.055+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitReplaceTransaction(BaseTransaction.java:365)
+[2025-11-02T10:36:23.056+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitTransaction(BaseTransaction.java:314)
+[2025-11-02T10:36:23.057+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.CommitCallbackTransaction.commitTransaction(CommitCallbackTransaction.java:126)
+[2025-11-02T10:36:23.058+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.spark.source.StagedSparkTable.commitStagedChanges(StagedSparkTable.java:34)
+[2025-11-02T10:36:23.059+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.$anonfun$writeToTable$1(WriteToDataSourceV2Exec.scala:603)
+[2025-11-02T10:36:23.060+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1563)
+[2025-11-02T10:36:23.061+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable(WriteToDataSourceV2Exec.scala:587)
+[2025-11-02T10:36:23.062+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable$(WriteToDataSourceV2Exec.scala:582)
+[2025-11-02T10:36:23.063+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.writeToTable(WriteToDataSourceV2Exec.scala:202)
+[2025-11-02T10:36:23.064+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.run(WriteToDataSourceV2Exec.scala:236)
+[2025-11-02T10:36:23.065+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result$lzycompute(V2CommandExec.scala:43)
+[2025-11-02T10:36:23.066+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result(V2CommandExec.scala:43)
+[2025-11-02T10:36:23.067+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.executeCollect(V2CommandExec.scala:49)
+[2025-11-02T10:36:23.068+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98)
+[2025-11-02T10:36:23.069+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:118)
+[2025-11-02T10:36:23.070+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:195)
+[2025-11-02T10:36:23.071+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:103)
+[2025-11-02T10:36:23.072+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:827)
+[2025-11-02T10:36:23.073+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)
+[2025-11-02T10:36:23.074+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-11-02T10:36:23.074+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94)
+[2025-11-02T10:36:23.075+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:512)
+[2025-11-02T10:36:23.076+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:104)
+[2025-11-02T10:36:23.077+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:512)
+[2025-11-02T10:36:23.078+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:23.079+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-11-02T10:36:23.080+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-11-02T10:36:23.081+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:23.082+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:23.083+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:488)
+[2025-11-02T10:36:23.084+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94)
+[2025-11-02T10:36:23.085+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81)
+[2025-11-02T10:36:23.086+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79)
+[2025-11-02T10:36:23.087+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:133)
+[2025-11-02T10:36:23.088+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.runCommand(DataFrameWriterV2.scala:195)
+[2025-11-02T10:36:23.089+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.internalReplace(DataFrameWriterV2.scala:207)
+[2025-11-02T10:36:23.090+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.createOrReplace(DataFrameWriterV2.scala:133)
+[2025-11-02T10:36:23.091+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-11-02T10:36:23.091+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-11-02T10:36:23.092+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-11-02T10:36:23.094+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-11-02T10:36:23.094+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-11-02T10:36:23.095+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-11-02T10:36:23.096+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-11-02T10:36:23.097+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-11-02T10:36:23.098+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-11-02T10:36:23.099+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-11-02T10:36:23.100+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-11-02T10:36:23.101+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-11-02T10:36:28.449+0000] {subprocess.py:93} INFO - Successfully written to Iceberg table: freshdesk_customers
+[2025-11-02T10:36:30.212+0000] {subprocess.py:93} INFO - INFO:__main__:Customers data written to iceberg successfully with 8 rows
+[2025-11-02T10:36:30.796+0000] {subprocess.py:93} INFO - [INFO] Latest file for freshdesk/agents: s3a://multusystem/freshdesk/agents/2025_11_02_1762079495193_0.parquet
+[2025-11-02T10:36:33.415+0000] {subprocess.py:93} INFO - INFO:__main__:Agents data loaded successfully from s3a://multusystem/freshdesk/agents/2025_11_02_1762079495193_0.parquet,rows: 5
+[2025-11-02T10:36:42.107+0000] {subprocess.py:93} INFO - 25/11/02 10:36:42 WARN HadoopTableOperations: Error reading version hint file s3a://multusystem/silver_layer/agents/metadata/version-hint.text
+[2025-11-02T10:36:42.108+0000] {subprocess.py:93} INFO - java.io.FileNotFoundException: No such file or directory: s3a://multusystem/silver_layer/agents/metadata/version-hint.text
+[2025-11-02T10:36:42.109+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3866)
+[2025-11-02T10:36:42.110+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3688)
+[2025-11-02T10:36:42.111+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.extractOrFetchSimpleFileStatus(S3AFileSystem.java:5401)
+[2025-11-02T10:36:42.112+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1465)
+[2025-11-02T10:36:42.113+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1441)
+[2025-11-02T10:36:42.114+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.open(FileSystem.java:976)
+[2025-11-02T10:36:42.115+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.findVersion(HadoopTableOperations.java:318)
+[2025-11-02T10:36:42.115+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.refresh(HadoopTableOperations.java:104)
+[2025-11-02T10:36:42.116+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.lambda$commitReplaceTransaction$1(BaseTransaction.java:368)
+[2025-11-02T10:36:42.117+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:413)
+[2025-11-02T10:36:42.118+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:219)
+[2025-11-02T10:36:42.118+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:203)
+[2025-11-02T10:36:42.119+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:196)
+[2025-11-02T10:36:42.120+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitReplaceTransaction(BaseTransaction.java:365)
+[2025-11-02T10:36:42.121+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitTransaction(BaseTransaction.java:314)
+[2025-11-02T10:36:42.122+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.CommitCallbackTransaction.commitTransaction(CommitCallbackTransaction.java:126)
+[2025-11-02T10:36:42.122+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.spark.source.StagedSparkTable.commitStagedChanges(StagedSparkTable.java:34)
+[2025-11-02T10:36:42.123+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.$anonfun$writeToTable$1(WriteToDataSourceV2Exec.scala:603)
+[2025-11-02T10:36:42.124+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1563)
+[2025-11-02T10:36:42.125+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable(WriteToDataSourceV2Exec.scala:587)
+[2025-11-02T10:36:42.125+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable$(WriteToDataSourceV2Exec.scala:582)
+[2025-11-02T10:36:42.126+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.writeToTable(WriteToDataSourceV2Exec.scala:202)
+[2025-11-02T10:36:42.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.run(WriteToDataSourceV2Exec.scala:236)
+[2025-11-02T10:36:42.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result$lzycompute(V2CommandExec.scala:43)
+[2025-11-02T10:36:42.129+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result(V2CommandExec.scala:43)
+[2025-11-02T10:36:42.130+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.executeCollect(V2CommandExec.scala:49)
+[2025-11-02T10:36:42.131+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98)
+[2025-11-02T10:36:42.131+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:118)
+[2025-11-02T10:36:42.132+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:195)
+[2025-11-02T10:36:42.133+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:103)
+[2025-11-02T10:36:42.134+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:827)
+[2025-11-02T10:36:42.135+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)
+[2025-11-02T10:36:42.137+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-11-02T10:36:42.139+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94)
+[2025-11-02T10:36:42.140+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:512)
+[2025-11-02T10:36:42.142+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:104)
+[2025-11-02T10:36:42.144+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:512)
+[2025-11-02T10:36:42.145+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:42.147+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-11-02T10:36:42.148+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-11-02T10:36:42.149+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:42.150+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:42.151+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:488)
+[2025-11-02T10:36:42.152+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94)
+[2025-11-02T10:36:42.153+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81)
+[2025-11-02T10:36:42.153+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79)
+[2025-11-02T10:36:42.154+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:133)
+[2025-11-02T10:36:42.155+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.runCommand(DataFrameWriterV2.scala:195)
+[2025-11-02T10:36:42.156+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.internalReplace(DataFrameWriterV2.scala:207)
+[2025-11-02T10:36:42.157+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.createOrReplace(DataFrameWriterV2.scala:133)
+[2025-11-02T10:36:42.158+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-11-02T10:36:42.159+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-11-02T10:36:42.160+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-11-02T10:36:42.161+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-11-02T10:36:42.162+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-11-02T10:36:42.163+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-11-02T10:36:42.164+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-11-02T10:36:42.165+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-11-02T10:36:42.166+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-11-02T10:36:42.168+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-11-02T10:36:42.169+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-11-02T10:36:42.170+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-11-02T10:36:43.702+0000] {subprocess.py:93} INFO - 25/11/02 10:36:43 WARN HadoopTableOperations: Error reading version hint file s3a://multusystem/silver_layer/agents/metadata/version-hint.text
+[2025-11-02T10:36:43.704+0000] {subprocess.py:93} INFO - java.io.FileNotFoundException: No such file or directory: s3a://multusystem/silver_layer/agents/metadata/version-hint.text
+[2025-11-02T10:36:43.706+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3866)
+[2025-11-02T10:36:43.706+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3688)
+[2025-11-02T10:36:43.708+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.extractOrFetchSimpleFileStatus(S3AFileSystem.java:5401)
+[2025-11-02T10:36:43.710+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1465)
+[2025-11-02T10:36:43.711+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1441)
+[2025-11-02T10:36:43.712+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.open(FileSystem.java:976)
+[2025-11-02T10:36:43.714+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.findVersion(HadoopTableOperations.java:318)
+[2025-11-02T10:36:43.715+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.refresh(HadoopTableOperations.java:104)
+[2025-11-02T10:36:43.716+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.current(HadoopTableOperations.java:84)
+[2025-11-02T10:36:43.718+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.lambda$commitReplaceTransaction$1(BaseTransaction.java:377)
+[2025-11-02T10:36:43.719+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:413)
+[2025-11-02T10:36:43.721+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:219)
+[2025-11-02T10:36:43.722+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:203)
+[2025-11-02T10:36:43.723+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:196)
+[2025-11-02T10:36:43.725+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitReplaceTransaction(BaseTransaction.java:365)
+[2025-11-02T10:36:43.726+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitTransaction(BaseTransaction.java:314)
+[2025-11-02T10:36:43.727+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.CommitCallbackTransaction.commitTransaction(CommitCallbackTransaction.java:126)
+[2025-11-02T10:36:43.729+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.spark.source.StagedSparkTable.commitStagedChanges(StagedSparkTable.java:34)
+[2025-11-02T10:36:43.731+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.$anonfun$writeToTable$1(WriteToDataSourceV2Exec.scala:603)
+[2025-11-02T10:36:43.732+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1563)
+[2025-11-02T10:36:43.733+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable(WriteToDataSourceV2Exec.scala:587)
+[2025-11-02T10:36:43.734+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable$(WriteToDataSourceV2Exec.scala:582)
+[2025-11-02T10:36:43.735+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.writeToTable(WriteToDataSourceV2Exec.scala:202)
+[2025-11-02T10:36:43.737+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.run(WriteToDataSourceV2Exec.scala:236)
+[2025-11-02T10:36:43.738+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result$lzycompute(V2CommandExec.scala:43)
+[2025-11-02T10:36:43.739+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result(V2CommandExec.scala:43)
+[2025-11-02T10:36:43.741+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.executeCollect(V2CommandExec.scala:49)
+[2025-11-02T10:36:43.742+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98)
+[2025-11-02T10:36:43.743+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:118)
+[2025-11-02T10:36:43.745+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:195)
+[2025-11-02T10:36:43.746+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:103)
+[2025-11-02T10:36:43.747+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:827)
+[2025-11-02T10:36:43.749+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)
+[2025-11-02T10:36:43.750+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-11-02T10:36:43.752+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94)
+[2025-11-02T10:36:43.753+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:512)
+[2025-11-02T10:36:43.754+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:104)
+[2025-11-02T10:36:43.757+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:512)
+[2025-11-02T10:36:43.758+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:43.760+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-11-02T10:36:43.761+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-11-02T10:36:43.763+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:43.764+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:36:43.765+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:488)
+[2025-11-02T10:36:43.767+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94)
+[2025-11-02T10:36:43.768+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81)
+[2025-11-02T10:36:43.769+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79)
+[2025-11-02T10:36:43.770+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:133)
+[2025-11-02T10:36:43.771+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.runCommand(DataFrameWriterV2.scala:195)
+[2025-11-02T10:36:43.772+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.internalReplace(DataFrameWriterV2.scala:207)
+[2025-11-02T10:36:43.773+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.createOrReplace(DataFrameWriterV2.scala:133)
+[2025-11-02T10:36:43.774+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-11-02T10:36:43.775+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-11-02T10:36:43.776+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-11-02T10:36:43.777+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-11-02T10:36:43.778+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-11-02T10:36:43.780+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-11-02T10:36:43.781+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-11-02T10:36:43.781+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-11-02T10:36:43.782+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-11-02T10:36:43.783+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-11-02T10:36:43.784+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-11-02T10:36:43.785+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-11-02T10:36:49.089+0000] {subprocess.py:93} INFO - Successfully written to Iceberg table: agents
+[2025-11-02T10:36:50.773+0000] {subprocess.py:93} INFO - INFO:__main__:Agents data written to iceberg successfully with 5 rows
+[2025-11-02T10:36:51.417+0000] {subprocess.py:93} INFO - [INFO] Latest file for freshdesk/tickets: s3a://multusystem/freshdesk/tickets/2025_11_02_1762079495193_0.parquet
+[2025-11-02T10:36:54.060+0000] {subprocess.py:93} INFO - INFO:__main__:Tickets data loaded successfully from s3a://multusystem/freshdesk/tickets/2025_11_02_1762079495193_0.parquet,rows: 8
+[2025-11-02T10:37:02.982+0000] {subprocess.py:93} INFO - 25/11/02 10:37:02 WARN HadoopTableOperations: Error reading version hint file s3a://multusystem/silver_layer/tickets/metadata/version-hint.text
+[2025-11-02T10:37:02.984+0000] {subprocess.py:93} INFO - java.io.FileNotFoundException: No such file or directory: s3a://multusystem/silver_layer/tickets/metadata/version-hint.text
+[2025-11-02T10:37:02.986+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3866)
+[2025-11-02T10:37:02.988+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3688)
+[2025-11-02T10:37:02.990+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.extractOrFetchSimpleFileStatus(S3AFileSystem.java:5401)
+[2025-11-02T10:37:02.991+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1465)
+[2025-11-02T10:37:02.992+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1441)
+[2025-11-02T10:37:02.993+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.open(FileSystem.java:976)
+[2025-11-02T10:37:02.994+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.findVersion(HadoopTableOperations.java:318)
+[2025-11-02T10:37:02.995+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.refresh(HadoopTableOperations.java:104)
+[2025-11-02T10:37:02.996+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.lambda$commitReplaceTransaction$1(BaseTransaction.java:368)
+[2025-11-02T10:37:03.001+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:413)
+[2025-11-02T10:37:03.003+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:219)
+[2025-11-02T10:37:03.004+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:203)
+[2025-11-02T10:37:03.005+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:196)
+[2025-11-02T10:37:03.007+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitReplaceTransaction(BaseTransaction.java:365)
+[2025-11-02T10:37:03.009+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitTransaction(BaseTransaction.java:314)
+[2025-11-02T10:37:03.011+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.CommitCallbackTransaction.commitTransaction(CommitCallbackTransaction.java:126)
+[2025-11-02T10:37:03.013+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.spark.source.StagedSparkTable.commitStagedChanges(StagedSparkTable.java:34)
+[2025-11-02T10:37:03.014+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.$anonfun$writeToTable$1(WriteToDataSourceV2Exec.scala:603)
+[2025-11-02T10:37:03.015+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1563)
+[2025-11-02T10:37:03.017+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable(WriteToDataSourceV2Exec.scala:587)
+[2025-11-02T10:37:03.018+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable$(WriteToDataSourceV2Exec.scala:582)
+[2025-11-02T10:37:03.020+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.writeToTable(WriteToDataSourceV2Exec.scala:202)
+[2025-11-02T10:37:03.021+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.run(WriteToDataSourceV2Exec.scala:236)
+[2025-11-02T10:37:03.023+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result$lzycompute(V2CommandExec.scala:43)
+[2025-11-02T10:37:03.024+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result(V2CommandExec.scala:43)
+[2025-11-02T10:37:03.026+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.executeCollect(V2CommandExec.scala:49)
+[2025-11-02T10:37:03.027+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98)
+[2025-11-02T10:37:03.028+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:118)
+[2025-11-02T10:37:03.033+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:195)
+[2025-11-02T10:37:03.034+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:103)
+[2025-11-02T10:37:03.035+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:827)
+[2025-11-02T10:37:03.036+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)
+[2025-11-02T10:37:03.036+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-11-02T10:37:03.037+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94)
+[2025-11-02T10:37:03.038+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:512)
+[2025-11-02T10:37:03.040+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:104)
+[2025-11-02T10:37:03.041+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:512)
+[2025-11-02T10:37:03.043+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:37:03.043+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-11-02T10:37:03.044+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-11-02T10:37:03.045+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:37:03.046+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:37:03.047+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:488)
+[2025-11-02T10:37:03.047+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94)
+[2025-11-02T10:37:03.049+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81)
+[2025-11-02T10:37:03.050+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79)
+[2025-11-02T10:37:03.051+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:133)
+[2025-11-02T10:37:03.052+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.runCommand(DataFrameWriterV2.scala:195)
+[2025-11-02T10:37:03.053+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.internalReplace(DataFrameWriterV2.scala:207)
+[2025-11-02T10:37:03.053+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.createOrReplace(DataFrameWriterV2.scala:133)
+[2025-11-02T10:37:03.054+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-11-02T10:37:03.055+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-11-02T10:37:03.056+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-11-02T10:37:03.057+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-11-02T10:37:03.058+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-11-02T10:37:03.059+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-11-02T10:37:03.060+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-11-02T10:37:03.061+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-11-02T10:37:03.062+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-11-02T10:37:03.063+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-11-02T10:37:03.065+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-11-02T10:37:03.066+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-11-02T10:37:04.565+0000] {subprocess.py:93} INFO - 25/11/02 10:37:04 WARN HadoopTableOperations: Error reading version hint file s3a://multusystem/silver_layer/tickets/metadata/version-hint.text
+[2025-11-02T10:37:04.567+0000] {subprocess.py:93} INFO - java.io.FileNotFoundException: No such file or directory: s3a://multusystem/silver_layer/tickets/metadata/version-hint.text
+[2025-11-02T10:37:04.568+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3866)
+[2025-11-02T10:37:04.569+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3688)
+[2025-11-02T10:37:04.570+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.extractOrFetchSimpleFileStatus(S3AFileSystem.java:5401)
+[2025-11-02T10:37:04.571+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1465)
+[2025-11-02T10:37:04.572+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.open(S3AFileSystem.java:1441)
+[2025-11-02T10:37:04.573+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.open(FileSystem.java:976)
+[2025-11-02T10:37:04.575+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.findVersion(HadoopTableOperations.java:318)
+[2025-11-02T10:37:04.576+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.refresh(HadoopTableOperations.java:104)
+[2025-11-02T10:37:04.578+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.hadoop.HadoopTableOperations.current(HadoopTableOperations.java:84)
+[2025-11-02T10:37:04.579+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.lambda$commitReplaceTransaction$1(BaseTransaction.java:377)
+[2025-11-02T10:37:04.580+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:413)
+[2025-11-02T10:37:04.582+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:219)
+[2025-11-02T10:37:04.583+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:203)
+[2025-11-02T10:37:04.585+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:196)
+[2025-11-02T10:37:04.586+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitReplaceTransaction(BaseTransaction.java:365)
+[2025-11-02T10:37:04.586+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.BaseTransaction.commitTransaction(BaseTransaction.java:314)
+[2025-11-02T10:37:04.588+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.CommitCallbackTransaction.commitTransaction(CommitCallbackTransaction.java:126)
+[2025-11-02T10:37:04.589+0000] {subprocess.py:93} INFO - 	at org.apache.iceberg.spark.source.StagedSparkTable.commitStagedChanges(StagedSparkTable.java:34)
+[2025-11-02T10:37:04.590+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.$anonfun$writeToTable$1(WriteToDataSourceV2Exec.scala:603)
+[2025-11-02T10:37:04.591+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1563)
+[2025-11-02T10:37:04.591+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable(WriteToDataSourceV2Exec.scala:587)
+[2025-11-02T10:37:04.592+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.TableWriteExecHelper.writeToTable$(WriteToDataSourceV2Exec.scala:582)
+[2025-11-02T10:37:04.593+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.writeToTable(WriteToDataSourceV2Exec.scala:202)
+[2025-11-02T10:37:04.594+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.AtomicReplaceTableAsSelectExec.run(WriteToDataSourceV2Exec.scala:236)
+[2025-11-02T10:37:04.595+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result$lzycompute(V2CommandExec.scala:43)
+[2025-11-02T10:37:04.596+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.result(V2CommandExec.scala:43)
+[2025-11-02T10:37:04.597+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.v2.V2CommandExec.executeCollect(V2CommandExec.scala:49)
+[2025-11-02T10:37:04.597+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:98)
+[2025-11-02T10:37:04.598+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:118)
+[2025-11-02T10:37:04.599+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:195)
+[2025-11-02T10:37:04.599+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:103)
+[2025-11-02T10:37:04.601+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:827)
+[2025-11-02T10:37:04.602+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:65)
+[2025-11-02T10:37:04.602+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-11-02T10:37:04.603+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:94)
+[2025-11-02T10:37:04.604+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:512)
+[2025-11-02T10:37:04.604+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:104)
+[2025-11-02T10:37:04.605+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:512)
+[2025-11-02T10:37:04.607+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:37:04.608+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-11-02T10:37:04.609+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-11-02T10:37:04.610+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:37:04.611+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:31)
+[2025-11-02T10:37:04.612+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:488)
+[2025-11-02T10:37:04.613+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:94)
+[2025-11-02T10:37:04.613+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:81)
+[2025-11-02T10:37:04.614+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:79)
+[2025-11-02T10:37:04.615+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:133)
+[2025-11-02T10:37:04.616+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.runCommand(DataFrameWriterV2.scala:195)
+[2025-11-02T10:37:04.617+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.internalReplace(DataFrameWriterV2.scala:207)
+[2025-11-02T10:37:04.618+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.DataFrameWriterV2.createOrReplace(DataFrameWriterV2.scala:133)
+[2025-11-02T10:37:04.619+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-11-02T10:37:04.620+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-11-02T10:37:04.621+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-11-02T10:37:04.622+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-11-02T10:37:04.622+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-11-02T10:37:04.624+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-11-02T10:37:04.625+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-11-02T10:37:04.625+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-11-02T10:37:04.626+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-11-02T10:37:04.627+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-11-02T10:37:04.628+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-11-02T10:37:04.629+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-11-02T10:37:09.910+0000] {subprocess.py:93} INFO - Successfully written to Iceberg table: tickets
+[2025-11-02T10:37:11.491+0000] {subprocess.py:93} INFO - INFO:__main__:Tickets data written to iceberg successfully with 8 rows
+[2025-11-02T10:37:11.492+0000] {subprocess.py:93} INFO - INFO:__main__:All transformations completed successfully
+[2025-11-02T10:37:11.494+0000] {subprocess.py:93} INFO - INFO:py4j.clientserver:Closing down clientserver connection
+[2025-11-02T10:37:11.806+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-02T10:37:11.833+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-02T10:37:11.834+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=data_lake_silver_transform, task_id=transform_freshdesk, run_id=manual__2025-11-02T10:32:39.209420+00:00, execution_date=20251102T103239, start_date=20251102T103555, end_date=20251102T103711
+[2025-11-02T10:37:11.880+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-02T10:37:11.899+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-02T10:37:11.902+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

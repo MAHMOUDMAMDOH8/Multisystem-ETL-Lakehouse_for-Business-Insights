@@ -1,0 +1,130 @@
+[2025-11-03T09:05:01.903+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-03T09:05:01.925+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_lake_silver_transform.transform_magento manual__2025-11-03T09:05:01.166728+00:00 [queued]>
+[2025-11-03T09:05:01.942+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_lake_silver_transform.transform_magento manual__2025-11-03T09:05:01.166728+00:00 [queued]>
+[2025-11-03T09:05:01.944+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-11-03T09:05:01.958+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): transform_magento> on 2025-11-03 09:05:01.166728+00:00
+[2025-11-03T09:05:01.962+0000] {standard_task_runner.py:72} INFO - Started process 433 to run task
+[2025-11-03T09:05:01.965+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'data_lake_silver_transform', 'transform_magento', 'manual__2025-11-03T09:05:01.166728+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/silver_transform.py', '--cfg-path', '/tmp/tmp7nbf4fhd']
+[2025-11-03T09:05:01.968+0000] {standard_task_runner.py:105} INFO - Job 53: Subtask transform_magento
+[2025-11-03T09:05:02.012+0000] {task_command.py:467} INFO - Running <TaskInstance: data_lake_silver_transform.transform_magento manual__2025-11-03T09:05:01.166728+00:00 [running]> on host 4bd4a2df5838
+[2025-11-03T09:05:02.091+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='data_lake_silver_transform' AIRFLOW_CTX_TASK_ID='transform_magento' AIRFLOW_CTX_EXECUTION_DATE='2025-11-03T09:05:01.166728+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-03T09:05:01.166728+00:00'
+[2025-11-03T09:05:02.093+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-03T09:05:02.111+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-03T09:05:02.113+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master spark://spark-master:7077 --packages org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.5.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --conf spark.hadoop.fs.s3a.endpoint=https://repulsive-spooky-cemetery-9rw4pvr4w66f4g6-4566.app.github.dev --conf spark.hadoop.fs.s3a.access.key=test --conf spark.hadoop.fs.s3a.secret.key=test --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.connection.ssl.enabled=true /opt/spark/work-dir/scripts/silver_layer/transform_magento.py']
+[2025-11-03T09:05:02.124+0000] {subprocess.py:86} INFO - Output:
+[2025-11-03T09:05:03.953+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark-3.4.0-bin-hadoop3/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-11-03T09:05:04.072+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-11-03T09:05:04.074+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-11-03T09:05:04.076+0000] {subprocess.py:93} INFO - org.apache.iceberg#iceberg-spark-runtime-3.4_2.12 added as a dependency
+[2025-11-03T09:05:04.077+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-11-03T09:05:04.079+0000] {subprocess.py:93} INFO - com.amazonaws#aws-java-sdk-bundle added as a dependency
+[2025-11-03T09:05:04.081+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-0550e1e5-912a-4703-a79e-e3efd8736eae;1.0
+[2025-11-03T09:05:04.082+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-03T09:05:04.191+0000] {subprocess.py:93} INFO - 	found org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 in central
+[2025-11-03T09:05:04.245+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+[2025-11-03T09:05:04.273+0000] {subprocess.py:93} INFO - 	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in spark-list
+[2025-11-03T09:05:04.299+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-11-03T09:05:04.320+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 233ms :: artifacts dl 11ms
+[2025-11-03T09:05:04.322+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-11-03T09:05:04.324+0000] {subprocess.py:93} INFO - 	com.amazonaws#aws-java-sdk-bundle;1.12.262 from spark-list in [default]
+[2025-11-03T09:05:04.325+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+[2025-11-03T09:05:04.326+0000] {subprocess.py:93} INFO - 	org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 from central in [default]
+[2025-11-03T09:05:04.327+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-11-03T09:05:04.328+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-03T09:05:04.329+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-11-03T09:05:04.331+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-11-03T09:05:04.332+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-03T09:05:04.334+0000] {subprocess.py:93} INFO - 	|      default     |   4   |   0   |   0   |   0   ||   4   |   0   |
+[2025-11-03T09:05:04.335+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-03T09:05:04.337+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-0550e1e5-912a-4703-a79e-e3efd8736eae
+[2025-11-03T09:05:04.338+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-03T09:05:04.341+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 4 already retrieved (0kB/5ms)
+[2025-11-03T09:05:04.574+0000] {subprocess.py:93} INFO - 25/11/03 09:05:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-03T09:05:06.565+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SparkContext: Running Spark version 3.4.0
+[2025-11-03T09:05:06.588+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO ResourceUtils: ==============================================================
+[2025-11-03T09:05:06.591+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-11-03T09:05:06.593+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO ResourceUtils: ==============================================================
+[2025-11-03T09:05:06.598+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SparkContext: Submitted application: Magento_Silver_Transform
+[2025-11-03T09:05:06.622+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-11-03T09:05:06.628+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO ResourceProfile: Limiting resource is cpu
+[2025-11-03T09:05:06.631+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-11-03T09:05:06.707+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SecurityManager: Changing view acls to: ***
+[2025-11-03T09:05:06.709+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SecurityManager: Changing modify acls to: ***
+[2025-11-03T09:05:06.710+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SecurityManager: Changing view acls groups to:
+[2025-11-03T09:05:06.712+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SecurityManager: Changing modify acls groups to:
+[2025-11-03T09:05:06.713+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-11-03T09:05:06.937+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO Utils: Successfully started service 'sparkDriver' on port 35595.
+[2025-11-03T09:05:06.983+0000] {subprocess.py:93} INFO - 25/11/03 09:05:06 INFO SparkEnv: Registering MapOutputTracker
+[2025-11-03T09:05:07.024+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkEnv: Registering BlockManagerMaster
+[2025-11-03T09:05:07.048+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-11-03T09:05:07.050+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-11-03T09:05:07.053+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-11-03T09:05:07.080+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f38cc0f6-3a87-46ac-85cc-3b36c21fd561
+[2025-11-03T09:05:07.095+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-11-03T09:05:07.112+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-11-03T09:05:07.244+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-11-03T09:05:07.305+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-11-03T09:05:07.333+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:35595/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.335+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:35595/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.337+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:35595/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.339+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:35595/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.341+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:35595/files/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.342+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar to /tmp/spark-1431d86b-378e-4ad0-9e36-88384314fa90/userFiles-9f5c29b4-b9b5-4845-9c86-594c3fb951e5/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar
+[2025-11-03T09:05:07.435+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:35595/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.440+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-1431d86b-378e-4ad0-9e36-88384314fa90/userFiles-9f5c29b4-b9b5-4845-9c86-594c3fb951e5/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-11-03T09:05:07.442+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:35595/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.444+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO Utils: Copying /home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-1431d86b-378e-4ad0-9e36-88384314fa90/userFiles-9f5c29b4-b9b5-4845-9c86-594c3fb951e5/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-11-03T09:05:07.973+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:35595/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762160706558
+[2025-11-03T09:05:07.975+0000] {subprocess.py:93} INFO - 25/11/03 09:05:07 INFO Utils: Copying /home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-1431d86b-378e-4ad0-9e36-88384314fa90/userFiles-9f5c29b4-b9b5-4845-9c86-594c3fb951e5/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-11-03T09:05:08.051+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-11-03T09:05:08.089+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.4:7077 after 21 ms (0 ms spent in bootstraps)
+[2025-11-03T09:05:08.226+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20251103090508-0000
+[2025-11-03T09:05:08.235+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40997.
+[2025-11-03T09:05:08.237+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO NettyBlockTransferService: Server created on 4bd4a2df5838:40997
+[2025-11-03T09:05:08.238+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-11-03T09:05:08.245+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 4bd4a2df5838, 40997, None)
+[2025-11-03T09:05:08.250+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO BlockManagerMasterEndpoint: Registering block manager 4bd4a2df5838:40997 with 434.4 MiB RAM, BlockManagerId(driver, 4bd4a2df5838, 40997, None)
+[2025-11-03T09:05:08.253+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 4bd4a2df5838, 40997, None)
+[2025-11-03T09:05:08.255+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 4bd4a2df5838, 40997, None)
+[2025-11-03T09:05:08.265+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20251103090508-0000/0 on worker-20251103085153-172.18.0.5-36639 (172.18.0.5:36639) with 2 core(s)
+[2025-11-03T09:05:08.267+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO StandaloneSchedulerBackend: Granted executor ID app-20251103090508-0000/0 on hostPort 172.18.0.5:36639 with 2 core(s), 1024.0 MiB RAM
+[2025-11-03T09:05:08.410+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20251103090508-0000/0 is now RUNNING
+[2025-11-03T09:05:08.484+0000] {subprocess.py:93} INFO - 25/11/03 09:05:08 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-11-03T09:05:10.855+0000] {subprocess.py:93} INFO - [INFO] Latest file for magento/categories: s3a://multusystem/magento/categories/2025_11_03_1762160450815_0.parquet
+[2025-11-03T09:05:11.898+0000] {subprocess.py:93} INFO - 25/11/03 09:05:11 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-11-03T09:05:26.195+0000] {subprocess.py:93} INFO - INFO:__main__:Categories data loaded successfully from s3a://multusystem/magento/categories/2025_11_03_1762160450815_0.parquet,rows: 4
+[2025-11-03T09:05:28.485+0000] {subprocess.py:93} INFO - Table local.categories does not exist. Creating it...
+[2025-11-03T09:05:49.252+0000] {subprocess.py:93} INFO - INFO:__main__:Categories data written to iceberg successfully with 4 rows
+[2025-11-03T09:05:49.832+0000] {subprocess.py:93} INFO - [INFO] Latest file for magento/subcategories: s3a://multusystem/magento/subcategories/2025_11_03_1762160450815_0.parquet
+[2025-11-03T09:05:52.453+0000] {subprocess.py:93} INFO - INFO:__main__:Subcategories data loaded successfully from s3a://multusystem/magento/subcategories/2025_11_03_1762160450815_0.parquet,rows: 10
+[2025-11-03T09:05:53.923+0000] {subprocess.py:93} INFO - Table local.subcategories does not exist. Creating it...
+[2025-11-03T09:06:09.666+0000] {subprocess.py:93} INFO - INFO:__main__:Subcategories data written to iceberg successfully with 10 rows
+[2025-11-03T09:06:10.250+0000] {subprocess.py:93} INFO - [INFO] Latest file for magento/customers: s3a://multusystem/magento/customers/2025_11_03_1762160450815_0.parquet
+[2025-11-03T09:06:12.924+0000] {subprocess.py:93} INFO - INFO:__main__:Customers data loaded successfully from s3a://multusystem/magento/customers/2025_11_03_1762160450815_0.parquet,rows: 6
+[2025-11-03T09:06:14.499+0000] {subprocess.py:93} INFO - Table local.magento_customers does not exist. Creating it...
+[2025-11-03T09:06:14.536+0000] {subprocess.py:93} INFO - 25/11/03 09:06:14 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-11-03T09:06:30.956+0000] {subprocess.py:93} INFO - INFO:__main__:Customers data written to iceberg successfully with 6 rows
+[2025-11-03T09:06:31.992+0000] {subprocess.py:93} INFO - [INFO] Latest file for magento/products: s3a://multusystem/magento/products/2025_11_03_1762160450815_0.parquet
+[2025-11-03T09:06:34.816+0000] {subprocess.py:93} INFO - INFO:__main__:Products data loaded successfully from s3a://multusystem/magento/products/2025_11_03_1762160450815_0.parquet,rows: 9
+[2025-11-03T09:06:36.320+0000] {subprocess.py:93} INFO - Table local.magento_products does not exist. Creating it...
+[2025-11-03T09:06:52.657+0000] {subprocess.py:93} INFO - INFO:__main__:Products data written to iceberg successfully with 9 rows
+[2025-11-03T09:06:53.158+0000] {subprocess.py:93} INFO - [INFO] Latest file for magento/orders: s3a://multusystem/magento/orders/2025_11_03_1762160450815_0.parquet
+[2025-11-03T09:06:55.714+0000] {subprocess.py:93} INFO - INFO:__main__:Orders data loaded successfully from s3a://multusystem/magento/orders/2025_11_03_1762160450815_0.parquet,rows: 5
+[2025-11-03T09:06:57.213+0000] {subprocess.py:93} INFO - Table local.magento_orders does not exist. Creating it...
+[2025-11-03T09:07:13.145+0000] {subprocess.py:93} INFO - INFO:__main__:Orders data written to iceberg successfully with 5 rows
+[2025-11-03T09:07:13.852+0000] {subprocess.py:93} INFO - [INFO] Latest file for magento/order_items: s3a://multusystem/magento/order_items/2025_11_03_1762160450815_0.parquet
+[2025-11-03T09:07:16.471+0000] {subprocess.py:93} INFO - INFO:__main__:Order items data loaded successfully from s3a://multusystem/magento/order_items/2025_11_03_1762160450815_0.parquet,rows: 7
+[2025-11-03T09:07:17.921+0000] {subprocess.py:93} INFO - Table local.magento_order_items does not exist. Creating it...
+[2025-11-03T09:07:33.608+0000] {subprocess.py:93} INFO - INFO:__main__:Order items data written to iceberg successfully with 7 rows
+[2025-11-03T09:07:34.357+0000] {subprocess.py:93} INFO - [INFO] Latest file for magento/payments: s3a://multusystem/magento/payments/2025_11_03_1762160450815_0.parquet
+[2025-11-03T09:07:36.907+0000] {subprocess.py:93} INFO - INFO:__main__:Payments data loaded successfully from s3a://multusystem/magento/payments/2025_11_03_1762160450815_0.parquet,rows: 5
+[2025-11-03T09:07:38.363+0000] {subprocess.py:93} INFO - Table local.payments does not exist. Creating it...
+[2025-11-03T09:07:54.038+0000] {subprocess.py:93} INFO - INFO:__main__:Payments data written to iceberg successfully with 5 rows
+[2025-11-03T09:07:54.040+0000] {subprocess.py:93} INFO - INFO:__main__:All transformations completed successfully
+[2025-11-03T09:07:54.042+0000] {subprocess.py:93} INFO - INFO:py4j.clientserver:Closing down clientserver connection
+[2025-11-03T09:07:54.315+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-03T09:07:54.341+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-03T09:07:54.344+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=data_lake_silver_transform, task_id=transform_magento, run_id=manual__2025-11-03T09:05:01.166728+00:00, execution_date=20251103T090501, start_date=20251103T090501, end_date=20251103T090754
+[2025-11-03T09:07:54.398+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-03T09:07:54.430+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-03T09:07:54.433+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

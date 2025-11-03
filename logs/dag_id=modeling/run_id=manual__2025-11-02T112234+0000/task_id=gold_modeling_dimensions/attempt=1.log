@@ -1,0 +1,184 @@
+[2025-11-02T11:22:34.978+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-02T11:22:35.000+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: modeling.gold_modeling_dimensions manual__2025-11-02T11:22:34+00:00 [queued]>
+[2025-11-02T11:22:35.009+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: modeling.gold_modeling_dimensions manual__2025-11-02T11:22:34+00:00 [queued]>
+[2025-11-02T11:22:35.012+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-11-02T11:22:35.025+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): gold_modeling_dimensions> on 2025-11-02 11:22:34+00:00
+[2025-11-02T11:22:35.031+0000] {standard_task_runner.py:72} INFO - Started process 3473 to run task
+[2025-11-02T11:22:35.034+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'modeling', 'gold_modeling_dimensions', 'manual__2025-11-02T11:22:34+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/modeling.py', '--cfg-path', '/tmp/tmpqzjmders']
+[2025-11-02T11:22:35.038+0000] {standard_task_runner.py:105} INFO - Job 24: Subtask gold_modeling_dimensions
+[2025-11-02T11:22:35.087+0000] {task_command.py:467} INFO - Running <TaskInstance: modeling.gold_modeling_dimensions manual__2025-11-02T11:22:34+00:00 [running]> on host 4bd4a2df5838
+[2025-11-02T11:22:35.165+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='modeling' AIRFLOW_CTX_TASK_ID='gold_modeling_dimensions' AIRFLOW_CTX_EXECUTION_DATE='2025-11-02T11:22:34+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-02T11:22:34+00:00'
+[2025-11-02T11:22:35.167+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-02T11:22:35.180+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-02T11:22:35.185+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master spark://spark-master:7077 --packages org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.5.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --conf spark.hadoop.fs.s3a.endpoint=https://repulsive-spooky-cemetery-9rw4pvr4w66f4g6-4566.app.github.dev --conf spark.hadoop.fs.s3a.access.key=test --conf spark.hadoop.fs.s3a.secret.key=test --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.connection.ssl.enabled=true /opt/spark/work-dir/scripts/gold_modeling/Dimensions/Dimensions.py']
+[2025-11-02T11:22:35.196+0000] {subprocess.py:86} INFO - Output:
+[2025-11-02T11:22:36.283+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark-3.4.0-bin-hadoop3/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-11-02T11:22:36.401+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-11-02T11:22:36.403+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-11-02T11:22:36.409+0000] {subprocess.py:93} INFO - org.apache.iceberg#iceberg-spark-runtime-3.4_2.12 added as a dependency
+[2025-11-02T11:22:36.411+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-11-02T11:22:36.413+0000] {subprocess.py:93} INFO - com.amazonaws#aws-java-sdk-bundle added as a dependency
+[2025-11-02T11:22:36.414+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-8dbafd85-2736-4632-8f6a-353dacc446f8;1.0
+[2025-11-02T11:22:36.416+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-02T11:22:36.532+0000] {subprocess.py:93} INFO - 	found org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 in central
+[2025-11-02T11:22:36.602+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+[2025-11-02T11:22:36.631+0000] {subprocess.py:93} INFO - 	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+[2025-11-02T11:22:36.670+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-11-02T11:22:36.715+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 285ms :: artifacts dl 19ms
+[2025-11-02T11:22:36.718+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-11-02T11:22:36.720+0000] {subprocess.py:93} INFO - 	com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+[2025-11-02T11:22:36.722+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+[2025-11-02T11:22:36.724+0000] {subprocess.py:93} INFO - 	org.apache.iceberg#iceberg-spark-runtime-3.4_2.12;1.5.0 from central in [default]
+[2025-11-02T11:22:36.725+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-11-02T11:22:36.727+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T11:22:36.729+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-11-02T11:22:36.730+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-11-02T11:22:36.732+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T11:22:36.734+0000] {subprocess.py:93} INFO - 	|      default     |   4   |   0   |   0   |   0   ||   4   |   0   |
+[2025-11-02T11:22:36.736+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-11-02T11:22:36.738+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-8dbafd85-2736-4632-8f6a-353dacc446f8
+[2025-11-02T11:22:36.741+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-11-02T11:22:36.743+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 4 already retrieved (0kB/11ms)
+[2025-11-02T11:22:36.911+0000] {subprocess.py:93} INFO - 25/11/02 11:22:36 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-02T11:22:38.617+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SparkContext: Running Spark version 3.4.0
+[2025-11-02T11:22:38.642+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO ResourceUtils: ==============================================================
+[2025-11-02T11:22:38.645+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-11-02T11:22:38.647+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO ResourceUtils: ==============================================================
+[2025-11-02T11:22:38.649+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SparkContext: Submitted application: Gold_Modeling_Dimensions
+[2025-11-02T11:22:38.664+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-11-02T11:22:38.671+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO ResourceProfile: Limiting resource is cpu
+[2025-11-02T11:22:38.673+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-11-02T11:22:38.720+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SecurityManager: Changing view acls to: ***
+[2025-11-02T11:22:38.722+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SecurityManager: Changing modify acls to: ***
+[2025-11-02T11:22:38.724+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SecurityManager: Changing view acls groups to:
+[2025-11-02T11:22:38.726+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SecurityManager: Changing modify acls groups to:
+[2025-11-02T11:22:38.728+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-11-02T11:22:38.924+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO Utils: Successfully started service 'sparkDriver' on port 35353.
+[2025-11-02T11:22:38.946+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SparkEnv: Registering MapOutputTracker
+[2025-11-02T11:22:38.977+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SparkEnv: Registering BlockManagerMaster
+[2025-11-02T11:22:38.990+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-11-02T11:22:38.992+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-11-02T11:22:38.995+0000] {subprocess.py:93} INFO - 25/11/02 11:22:38 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-11-02T11:22:39.011+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-3c1c00c0-7202-4215-a6cd-76c9e56645e5
+[2025-11-02T11:22:39.026+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-11-02T11:22:39.040+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-11-02T11:22:39.158+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-11-02T11:22:39.220+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-11-02T11:22:39.252+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:35353/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.254+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:35353/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.256+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:35353/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.258+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:35353/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.260+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar at spark://4bd4a2df5838:35353/files/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.262+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar to /tmp/spark-fe55359c-d5e2-4d93-a420-1412b95142e7/userFiles-f952801a-de7f-4768-835b-44d5c08aca9b/org.apache.iceberg_iceberg-spark-runtime-3.4_2.12-1.5.0.jar
+[2025-11-02T11:22:39.299+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://4bd4a2df5838:35353/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.301+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-fe55359c-d5e2-4d93-a420-1412b95142e7/userFiles-f952801a-de7f-4768-835b-44d5c08aca9b/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-11-02T11:22:39.306+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://4bd4a2df5838:35353/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.308+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO Utils: Copying /home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-fe55359c-d5e2-4d93-a420-1412b95142e7/userFiles-f952801a-de7f-4768-835b-44d5c08aca9b/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-11-02T11:22:39.533+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://4bd4a2df5838:35353/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1762082558610
+[2025-11-02T11:22:39.535+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO Utils: Copying /home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-fe55359c-d5e2-4d93-a420-1412b95142e7/userFiles-f952801a-de7f-4768-835b-44d5c08aca9b/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-11-02T11:22:39.613+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-11-02T11:22:39.643+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.3:7077 after 16 ms (0 ms spent in bootstraps)
+[2025-11-02T11:22:39.724+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20251102112239-0005
+[2025-11-02T11:22:39.727+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20251102112239-0005/0 on worker-20251102102542-172.18.0.5-39375 (172.18.0.5:39375) with 2 core(s)
+[2025-11-02T11:22:39.732+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO StandaloneSchedulerBackend: Granted executor ID app-20251102112239-0005/0 on hostPort 172.18.0.5:39375 with 2 core(s), 1024.0 MiB RAM
+[2025-11-02T11:22:39.737+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44135.
+[2025-11-02T11:22:39.740+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO NettyBlockTransferService: Server created on 4bd4a2df5838:44135
+[2025-11-02T11:22:39.743+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-11-02T11:22:39.749+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 4bd4a2df5838, 44135, None)
+[2025-11-02T11:22:39.751+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO BlockManagerMasterEndpoint: Registering block manager 4bd4a2df5838:44135 with 434.4 MiB RAM, BlockManagerId(driver, 4bd4a2df5838, 44135, None)
+[2025-11-02T11:22:39.753+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 4bd4a2df5838, 44135, None)
+[2025-11-02T11:22:39.755+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 4bd4a2df5838, 44135, None)
+[2025-11-02T11:22:39.795+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20251102112239-0005/0 is now RUNNING
+[2025-11-02T11:22:39.909+0000] {subprocess.py:93} INFO - 25/11/02 11:22:39 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-11-02T11:22:40.072+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-11-02T11:22:40.074+0000] {subprocess.py:93} INFO -   File "/opt/spark-3.4.0-bin-hadoop3/work-dir/scripts/gold_modeling/Dimensions/Dimensions.py", line 27, in <module>
+[2025-11-02T11:22:40.079+0000] {subprocess.py:93} INFO -     Customer_dim(spark)
+[2025-11-02T11:22:40.081+0000] {subprocess.py:93} INFO - TypeError: main() takes 0 positional arguments but 1 was given
+[2025-11-02T11:22:40.082+0000] {subprocess.py:93} INFO - INFO:py4j.clientserver:Closing down clientserver connection
+[2025-11-02T11:22:40.139+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO SparkContext: Invoking stop() from shutdown hook
+[2025-11-02T11:22:40.141+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-11-02T11:22:40.152+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO SparkUI: Stopped Spark web UI at http://4bd4a2df5838:4040
+[2025-11-02T11:22:40.158+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2025-11-02T11:22:40.162+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2025-11-02T11:22:40.181+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-11-02T11:22:40.196+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO MemoryStore: MemoryStore cleared
+[2025-11-02T11:22:40.198+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO BlockManager: BlockManager stopped
+[2025-11-02T11:22:40.205+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-11-02T11:22:40.207+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-11-02T11:22:40.252+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO SparkContext: Successfully stopped SparkContext
+[2025-11-02T11:22:40.254+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO ShutdownHookManager: Shutdown hook called
+[2025-11-02T11:22:40.256+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO ShutdownHookManager: Deleting directory /tmp/spark-12686ae5-1b14-44fa-8e2b-f614404f59a2
+[2025-11-02T11:22:40.257+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO ShutdownHookManager: Deleting directory /tmp/spark-fe55359c-d5e2-4d93-a420-1412b95142e7
+[2025-11-02T11:22:40.262+0000] {subprocess.py:93} INFO - 25/11/02 11:22:40 INFO ShutdownHookManager: Deleting directory /tmp/spark-fe55359c-d5e2-4d93-a420-1412b95142e7/pyspark-156351ed-43f9-4484-94cc-db547f8e40c4
+[2025-11-02T11:22:40.291+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-02T11:22:40.304+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-02T11:22:40.310+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=modeling, task_id=gold_modeling_dimensions, run_id=manual__2025-11-02T11:22:34+00:00, execution_date=20251102T112234, start_date=20251102T112235, end_date=20251102T112240
+[2025-11-02T11:22:40.326+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-02T11:22:40.328+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 24 for task gold_modeling_dimensions (Bash command failed. The command returned a non-zero exit code 1.; 3473)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-02T11:22:40.356+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-11-02T11:22:40.376+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-02T11:22:40.382+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

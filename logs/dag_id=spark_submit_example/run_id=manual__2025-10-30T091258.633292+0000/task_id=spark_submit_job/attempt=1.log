@@ -1,0 +1,179 @@
+[2025-10-30T09:12:59.311+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-10-30T09:12:59.327+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_submit_example.spark_submit_job manual__2025-10-30T09:12:58.633292+00:00 [queued]>
+[2025-10-30T09:12:59.338+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_submit_example.spark_submit_job manual__2025-10-30T09:12:58.633292+00:00 [queued]>
+[2025-10-30T09:12:59.340+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-10-30T09:12:59.354+0000] {taskinstance.py:2888} INFO - Executing <Task(SparkSubmitOperator): spark_submit_job> on 2025-10-30 09:12:58.633292+00:00
+[2025-10-30T09:12:59.361+0000] {standard_task_runner.py:72} INFO - Started process 816 to run task
+[2025-10-30T09:12:59.365+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'spark_submit_example', 'spark_submit_job', 'manual__2025-10-30T09:12:58.633292+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/spark_submit_example.py', '--cfg-path', '/tmp/tmpw86l2jpx']
+[2025-10-30T09:12:59.369+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask spark_submit_job
+[2025-10-30T09:12:59.438+0000] {task_command.py:467} INFO - Running <TaskInstance: spark_submit_example.spark_submit_job manual__2025-10-30T09:12:58.633292+00:00 [running]> on host 8bd4298c1c82
+[2025-10-30T09:12:59.544+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='spark_submit_example' AIRFLOW_CTX_TASK_ID='spark_submit_job' AIRFLOW_CTX_EXECUTION_DATE='2025-10-30T09:12:58.633292+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-30T09:12:58.633292+00:00'
+[2025-10-30T09:12:59.546+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-10-30T09:12:59.593+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.11/site-packages/***/models/connection.py:372 RemovedInAirflow3Warning: Encountered non-JSON in `extra` field for connection 'spark_default'. Support for non-JSON `extra` will be removed in Airflow 3.0
+[2025-10-30T09:12:59.595+0000] {connection.py:495} ERROR - Failed parsing the json for conn_id spark_default
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/connection.py", line 493, in get_extra_dejson
+    extra = json.loads(self.extra)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+[2025-10-30T09:12:59.598+0000] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2025-10-30T09:12:59.600+0000] {connection.py:495} ERROR - Failed parsing the json for conn_id spark_default
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/connection.py", line 493, in get_extra_dejson
+    extra = json.loads(self.extra)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+[2025-10-30T09:12:59.602+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.app.name=***_spark_job --conf spark.executor.memory=1g --conf spark.executor.cores=2 --conf spark.cores.max=4 --name arrow-spark --verbose /opt/spark/work-dir/simple_pi.py
+[2025-10-30T09:12:59.974+0000] {spark_submit.py:644} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2025-10-30T09:12:59.659+0000] {spark_submit.py:644} INFO - Parsed arguments:
+[2025-10-30T09:12:59.661+0000] {spark_submit.py:644} INFO - master                  spark-master:7077
+[2025-10-30T09:12:59.663+0000] {spark_submit.py:644} INFO - remote                  null
+[2025-10-30T09:12:59.666+0000] {spark_submit.py:644} INFO - deployMode              null
+[2025-10-30T09:12:59.667+0000] {spark_submit.py:644} INFO - executorMemory          1g
+[2025-10-30T09:12:59.669+0000] {spark_submit.py:644} INFO - executorCores           2
+[2025-10-30T09:12:59.671+0000] {spark_submit.py:644} INFO - totalExecutorCores      4
+[2025-10-30T09:12:59.672+0000] {spark_submit.py:644} INFO - propertiesFile          null
+[2025-10-30T09:12:59.674+0000] {spark_submit.py:644} INFO - driverMemory            null
+[2025-10-30T09:12:59.677+0000] {spark_submit.py:644} INFO - driverCores             null
+[2025-10-30T09:12:59.679+0000] {spark_submit.py:644} INFO - driverExtraClassPath    null
+[2025-10-30T09:12:59.681+0000] {spark_submit.py:644} INFO - driverExtraLibraryPath  null
+[2025-10-30T09:12:59.683+0000] {spark_submit.py:644} INFO - driverExtraJavaOptions  null
+[2025-10-30T09:12:59.685+0000] {spark_submit.py:644} INFO - supervise               false
+[2025-10-30T09:12:59.687+0000] {spark_submit.py:644} INFO - queue                   null
+[2025-10-30T09:12:59.689+0000] {spark_submit.py:644} INFO - numExecutors            null
+[2025-10-30T09:12:59.690+0000] {spark_submit.py:644} INFO - files                   null
+[2025-10-30T09:12:59.692+0000] {spark_submit.py:644} INFO - pyFiles                 null
+[2025-10-30T09:12:59.693+0000] {spark_submit.py:644} INFO - archives                null
+[2025-10-30T09:12:59.695+0000] {spark_submit.py:644} INFO - mainClass               null
+[2025-10-30T09:12:59.696+0000] {spark_submit.py:644} INFO - primaryResource         file:/opt/spark/work-dir/simple_pi.py
+[2025-10-30T09:12:59.697+0000] {spark_submit.py:644} INFO - name                    arrow-spark
+[2025-10-30T09:12:59.699+0000] {spark_submit.py:644} INFO - childArgs               []
+[2025-10-30T09:12:59.701+0000] {spark_submit.py:644} INFO - jars                    null
+[2025-10-30T09:12:59.703+0000] {spark_submit.py:644} INFO - packages                null
+[2025-10-30T09:12:59.705+0000] {spark_submit.py:644} INFO - packagesExclusions      null
+[2025-10-30T09:12:59.707+0000] {spark_submit.py:644} INFO - repositories            null
+[2025-10-30T09:12:59.708+0000] {spark_submit.py:644} INFO - verbose                 true
+[2025-10-30T09:12:59.710+0000] {spark_submit.py:644} INFO - 
+[2025-10-30T09:12:59.711+0000] {spark_submit.py:644} INFO - Spark properties used, including those specified through
+[2025-10-30T09:12:59.713+0000] {spark_submit.py:644} INFO - --conf and those from the properties file null:
+[2025-10-30T09:12:59.715+0000] {spark_submit.py:644} INFO - (spark.app.name,***_spark_job)
+[2025-10-30T09:12:59.717+0000] {spark_submit.py:644} INFO - (spark.cores.max,4)
+[2025-10-30T09:12:59.719+0000] {spark_submit.py:644} INFO - (spark.executor.cores,2)
+[2025-10-30T09:12:59.721+0000] {spark_submit.py:644} INFO - (spark.executor.memory,1g)
+[2025-10-30T09:12:59.722+0000] {spark_submit.py:644} INFO - (spark.master,spark://spark-master:7077)
+[2025-10-30T09:12:59.724+0000] {spark_submit.py:644} INFO - 
+[2025-10-30T09:12:59.726+0000] {spark_submit.py:644} INFO - 
+[2025-10-30T09:12:59.987+0000] {spark_submit.py:644} INFO - Main class:
+[2025-10-30T09:12:59.989+0000] {spark_submit.py:644} INFO - org.apache.spark.deploy.PythonRunner
+[2025-10-30T09:12:59.990+0000] {spark_submit.py:644} INFO - Arguments:
+[2025-10-30T09:12:59.992+0000] {spark_submit.py:644} INFO - file:/opt/spark/work-dir/simple_pi.py
+[2025-10-30T09:12:59.994+0000] {spark_submit.py:644} INFO - null
+[2025-10-30T09:12:59.995+0000] {spark_submit.py:644} INFO - Spark config:
+[2025-10-30T09:12:59.997+0000] {spark_submit.py:644} INFO - (spark.app.name,arrow-spark)
+[2025-10-30T09:12:59.998+0000] {spark_submit.py:644} INFO - (spark.app.submitTime,1761815579949)
+[2025-10-30T09:13:00.000+0000] {spark_submit.py:644} INFO - (spark.cores.max,4)
+[2025-10-30T09:13:00.002+0000] {spark_submit.py:644} INFO - (spark.executor.cores,2)
+[2025-10-30T09:13:00.004+0000] {spark_submit.py:644} INFO - (spark.executor.memory,1g)
+[2025-10-30T09:13:00.005+0000] {spark_submit.py:644} INFO - (spark.master,spark-master:7077)
+[2025-10-30T09:13:00.007+0000] {spark_submit.py:644} INFO - (spark.submit.deployMode,client)
+[2025-10-30T09:13:00.009+0000] {spark_submit.py:644} INFO - (spark.submit.pyFiles,)
+[2025-10-30T09:13:00.010+0000] {spark_submit.py:644} INFO - Classpath elements:
+[2025-10-30T09:13:00.012+0000] {spark_submit.py:644} INFO - 
+[2025-10-30T09:13:00.014+0000] {spark_submit.py:644} INFO - 
+[2025-10-30T09:13:00.016+0000] {spark_submit.py:644} INFO - 
+[2025-10-30T09:13:00.126+0000] {spark_submit.py:644} INFO - python3: can't open file '/opt/spark/work-dir/simple_pi.py': [Errno 2] No such file or directory
+[2025-10-30T09:13:00.149+0000] {spark_submit.py:644} INFO - 25/10/30 09:13:00 INFO ShutdownHookManager: Shutdown hook called
+[2025-10-30T09:13:00.153+0000] {spark_submit.py:644} INFO - 25/10/30 09:13:00 INFO ShutdownHookManager: Deleting directory /tmp/spark-097fdd46-3da7-476c-8eb5-37319b04d997
+[2025-10-30T09:13:00.190+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.app.name=***_spark_job --conf spark.executor.memory=1g --conf spark.executor.cores=2 --conf spark.cores.max=4 --name arrow-spark --verbose /opt/spark/work-dir/simple_pi.py. Error code is: 2.
+[2025-10-30T09:13:00.205+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=spark_submit_example, task_id=spark_submit_job, run_id=manual__2025-10-30T09:12:58.633292+00:00, execution_date=20251030T091258, start_date=20251030T091259, end_date=20251030T091300
+[2025-10-30T09:13:00.220+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-10-30T09:13:00.223+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 3 for task spark_submit_job (Cannot execute: spark-submit --master spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.app.name=***_spark_job --conf spark.executor.memory=1g --conf spark.executor.cores=2 --conf spark.cores.max=4 --name arrow-spark --verbose /opt/spark/work-dir/simple_pi.py. Error code is: 2.; 816)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.app.name=***_spark_job --conf spark.executor.memory=1g --conf spark.executor.cores=2 --conf spark.cores.max=4 --name arrow-spark --verbose /opt/spark/work-dir/simple_pi.py. Error code is: 2.
+[2025-10-30T09:13:00.238+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-10-30T09:13:00.276+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-30T09:13:00.280+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

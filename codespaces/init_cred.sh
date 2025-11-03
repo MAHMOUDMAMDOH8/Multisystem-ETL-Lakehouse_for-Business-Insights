@@ -1,0 +1,1 @@
+ $ echo "Checking current AWS CLI credential values..." && aws configure get aws_access_key_id || true && aws configure get aws_secret_access_key || true && echo "--- ~/.aws/credentials (first 200 lines) ---" && [ -f ~/.aws/credentials ] && sed -n '1,200p' ~/.aws/credentials || echo "(no credentials file)"
