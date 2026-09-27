@@ -1,7 +1,8 @@
 ## Multisystem ETL Lakehouse for Business Insights
 
 ## pipeline-Architecture
-![Low-level Data Flow](Data%20Architecture/data%20flow%20low%20level.png)
+![Low-level Data Flow](<img width="1024" height="512" alt="image" src="https://github.com/user-attachments/assets/5f952d42-c46b-4829-b1f2-62a6016ea0ef" />
+)
 
 ## Layers
 ![Lakehouse Layers](Data%20Architecture/layers.png)
